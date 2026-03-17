@@ -301,11 +301,11 @@ const STYLE = `
     .ap-root { max-width: 1400px; }
     .split-layout { display: grid; grid-template-columns: 1fr 380px; gap: 0; align-items: start; }
     .split-cal { min-width: 0; }
-    .split-detail { position: sticky; top: 80px; height: calc(100vh - 100px); overflow-y: auto; background: var(--panel); border: 1px solid var(--border); border-radius: 20px; margin-left: 16px; scrollbar-width: thin; scrollbar-color: rgba(200,144,42,0.2) transparent; }
+    .split-detail { position: sticky; top: 80px; height: calc(100vh - 100px); overflow-y: auto; background: var(--panel); border: 1px solid var(--border); border-radius: 20px; margin-left: 16px; scrollbar-width: thin; scrollbar-color: rgba(200,144,42,0.2) transparent; display: none; display: block;}
     .dp-panel { position: static !important; border-radius: 20px !important; border: none !important; max-height: none !important; animation: none !important; background: transparent !important; }
     .dp-overlay { display: none !important; }
     .dp-handle { display: none !important; }
-    .dp-close { display: none !important; }
+    .split-detail .dp-close { display: none !important; }
     .dc { min-height: 120px; }
     .energy-pills { display: flex !important; }
   }
@@ -1220,7 +1220,7 @@ export default function AuraPanchangFull() {
       )}
 
       {/* Mobile bottom sheet (hidden on desktop via CSS) */}
-      {showPanel&&selectedDayData&&window.innerWidth<900&&(
+      {showPanel && selectedDayData && (
         <DayPanel
           day={selectedDayData} lang={lang} profile={profile}
           myDaysOn={myDaysOn} personalType={personalType}
