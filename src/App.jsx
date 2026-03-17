@@ -371,14 +371,41 @@ const STYLE = `
   .dp-panel::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
   .dp-handle { width: 40px; height: 4px; background: var(--ink3); border-radius: 2px; margin: 14px auto 0; }
   .dp-inner { padding: 18px 22px 36px; position: relative; }
-  .dp-close { position: absolute; top: 18px; right: 22px; width: 34px; height: 34px; border-radius: 50%; background: var(--ink); border: 1px solid var(--border); color: var(--moon-d); cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; transition: all 0.2s; z-index: 5; }
+  .dp-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--ink2);
+  border: 1px solid var(--border);
+  color: var(--moon);
+  cursor: pointer;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  z-index: 50;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+.dp-close:hover { background: var(--gold-d); color: var(--gold); }
   .dp-close:hover { background: var(--gold-d); color: var(--gold); }
   .dp-date-row { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 18px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
   .dp-big-date { font-family: 'Cormorant Garamond', serif; font-size: 68px; font-weight: 300; line-height: 1; color: var(--gold-p); letter-spacing: -4px; }
   .dp-day-name { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; color: var(--moon); }
   .dp-gregorian { font-size: 11px; letter-spacing: 2px; color: var(--moon-d); text-transform: uppercase; margin-top: 2px; opacity: 0.7; }
   .dp-samvat-line { font-family: 'Noto Sans Devanagari', sans-serif; font-size: 11px; color: var(--moon-d); margin-top: 4px; opacity: 0.6; }
-  .dp-pills { display: flex; flex-direction: column; gap: 5px; align-items: flex-end; margin-left: auto; }
+  .dp-pills {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: flex-end;
+  margin-left: auto;
+  padding-right: 48px;
+}
   .dp-pill { background: var(--ink); border: 1px solid var(--border); border-radius: 20px; padding: 4px 11px; font-family: 'Cormorant Garamond', serif; display: flex; align-items: center; gap: 5px; font-size: 12px; }
   .dp-pill .t { color: var(--gold-p); font-weight: 600; }
   .dp-pill .l { color: var(--moon-d); font-size: 9px; letter-spacing: 1px; opacity: 0.7; }
@@ -1017,7 +1044,7 @@ export default function AuraPanchangFull() {
   const [viewYear, setViewYear] = useState(2026);
   const [viewMonth, setViewMonth] = useState(2);
   const [selectedDay, setSelectedDay] = useState(17);
-  const [showPanel, setShowPanel] = useState(true);
+  const [showPanel, setShowPanel] = useState(false);
   const [tooltip, setTooltip] = useState(null); // PATCH 6
 
   const t = T[lang];
